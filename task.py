@@ -10,9 +10,6 @@ class Point:
 class Line():
     def __init__(self, x, y):
         Point.__init__(self, x, y)
-        # self._len = Point(x, y)
-        # self.x = x
-        # self.y = y
 
     def length(self):
         len = (self.x**2 + self.y**2)**0.5
@@ -33,8 +30,9 @@ class Shape(ABC):
 
 class Square(Line, Shape):
     def area(self):
-        S = self.x ** 2
-        print(f'Square area = {S}')
+        self.S = self.x ** 2
+        print(f'Square area = {self.S}')
+        return self.S
 
     def perimeter(self):
         P = 4 * self.x
@@ -46,7 +44,7 @@ class Rect(Shape):
         self._sp = Line(x, y)
 
     def length(self):
-        length = self._sp.length()
+        self._sp.length()
 
     def area(self):
         S = self._sp.x * self._sp.y
@@ -59,7 +57,7 @@ class Rect(Shape):
 
 class Cube(Square):
     def volume(self):
-        V = self.x ** 3
+        V = self.S * self.x
         print(f'Cube volume = {V}')
 
 
